@@ -8,8 +8,8 @@ type Props = {
 const PostCard = ({ post }: Props) => {
 	return (
 		<div>
-			{post.title}
-			{post.excerpt}
+			{post.node.title}
+			{post.node.excerpt}
 		</div>
 	)
 }
