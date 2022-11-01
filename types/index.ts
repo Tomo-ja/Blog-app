@@ -7,13 +7,13 @@ export type TCategory = {
 export type TAuthor = {
 	id: string,
 	name: string,
-	bio: string,
-	photo: {
+	bio?: string,
+	photo?: {
 		url: string
 	}
 }
 
-export type TPost = {
+export type TPostSummary = {
 	node: {
 		author: TAuthor,
 		createdAt: string,
@@ -23,6 +23,6 @@ export type TPost = {
 		featuredImage: {
 			url: string
 		},
-		categories: TCategory[]
+		categories: TCategory[],
 	}
 }

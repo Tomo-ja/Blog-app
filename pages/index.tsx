@@ -4,10 +4,10 @@ import Head from 'next/head'
 import { getPosts } from '../services'
 import { PostCard,  PostWidget, Categories} from '../components'
 
-import { TPost } from '../types'
+import { TPostSummary } from '../types'
 
 type Props = {
-  posts: TPost[]
+  posts: TPostSummary[]
 }
 
 const Home = ({ posts }: Props) => {
@@ -30,7 +30,6 @@ const Home = ({ posts }: Props) => {
           </div>
         </div>
       </div>
-
     </div>
   )
 }
