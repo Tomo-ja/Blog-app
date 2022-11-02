@@ -26,3 +26,10 @@ export type TPostSummary = {
 		categories: TCategory[],
 	}
 }
+
+export type TPostOnWidget = {
+	title: string,
+	featuredImage: { url: string },
+	createdAt: string,
+	slug: string
+}
