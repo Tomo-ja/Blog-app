@@ -50,7 +50,12 @@ export type TPostDetail = {
 	content: TContent
 }
 
-
+export type TCommentSubmission = {
+	name: string,
+	email: string,
+	comment: string,
+	slug: string
+}
 
 export type TPostOnWidget = {
 	title: string,
