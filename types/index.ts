@@ -13,6 +13,16 @@ export type TAuthor = {
 	}
 }
 
+export type TPostFeatured = {
+	author: TAuthor,
+	createdAt: string,
+	slug: string,
+	title: string,
+	featuredImage: {
+		url: string
+	},
+}
+
 export type TPostSummary = {
 	node: {
 		author: TAuthor,
@@ -62,4 +72,10 @@ export type TPostOnWidget = {
 	featuredImage: { url: string },
 	createdAt: string,
 	slug: string
+}
+
+export type TComment = {
+	name: string,
+	createdAt: string,
+	comment: string
 }
