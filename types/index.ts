@@ -27,6 +27,31 @@ export type TPostSummary = {
 	}
 }
 
+
+export type TContent = {
+	raw: {
+		children: {
+			type: string,
+			children: any[]
+		}[]
+	}
+}
+
+export type TPostDetail = {
+	author: TAuthor,
+	createdAt: string,
+	slug: string,
+	title: string,
+	excerpt: string,
+	featuredImage: {
+		url: string
+	},
+	categories: TCategory[],
+	content: TContent
+}
+
+
+
 export type TPostOnWidget = {
 	title: string,
 	featuredImage: { url: string },

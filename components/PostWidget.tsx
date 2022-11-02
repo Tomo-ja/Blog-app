@@ -5,7 +5,7 @@ import { TCategory, TPostOnWidget } from '../types'
 import { getRecentPosts, getSimilarPosts } from '../services'
 
 type Props = {
-	categories?: TCategory[],
+	categories?: string[],
 	slug?: string
 }
 
@@ -16,8 +16,8 @@ const PostWidget = ({ categories, slug }: Props) => {
 
 	useEffect(() => {
 		if (slug) {
-			// getSimilarPosts(categories, slug)
-			// 	.then((result) => setRelatedPosts(result))
+			getSimilarPosts(slug, categories!)
+				.then((result) => setRelatedPosts(result))
 		} else {
 			getRecentPosts()
 				.then((result) => setRelatedPosts(result))
