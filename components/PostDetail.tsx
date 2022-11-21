@@ -21,6 +21,9 @@ const PostDetail = ({ post }: Props) => {
 			if (obj.underline) {
 				modifiedText = (<u key={index}>{text}</u>)
 			}
+			if (obj.type === 'list-item') {
+				return <li key={index} className="mb-2"><React.Fragment key={obj.children[0].children[0].text}>{obj.children[0].children[0].text}</React.Fragment></li>;
+			}
 		}
 
     switch (type) {
@@ -29,7 +32,9 @@ const PostDetail = ({ post }: Props) => {
       case 'paragraph':
         return <p key={index} className="mb-8">{modifiedText.map((item: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined, i: React.Key | null | undefined) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined, i: React.Key | null | undefined) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index} className="text-lg font-semibold mb-4 pb-4 border-b-2 border-b-gray-500">{modifiedText.map((item: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined, i: React.Key | null | undefined) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+			case 'heading-six':
+				return <h4 key={index} className="text-base font-semibold mb-2">{modifiedText.map((item: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined, i: React.Key | null | undefined) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'image':
         return (
           <img
@@ -44,7 +49,6 @@ const PostDetail = ({ post }: Props) => {
         return modifiedText;
     }
 	}
-
 
 	return (
 		<div className='bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8'>
@@ -81,7 +85,6 @@ const PostDetail = ({ post }: Props) => {
 				</h1>
 				{post.content.raw.children.map((typeObj, index) => {
 					const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item))
-
 					return getContentFragment(index, children, typeObj, typeObj.type)
 				})}
 			</div>
