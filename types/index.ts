@@ -79,3 +79,7 @@ export type TComment = {
 	createdAt: string,
 	comment: string
 }
+
+export type TImageUpload = {
+	image: FileList
+}

@@ -8,7 +8,6 @@ type Props = {
 
 const CommentsForm = ({ slug }: Props) => {
 	const [error, setError] = useState(false)
-	// const [localStorage, setLocalStorage] = useState(null)
 	const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
 	const commentEl = useRef<HTMLTextAreaElement>(null)
@@ -41,7 +40,7 @@ const CommentsForm = ({ slug }: Props) => {
 			localStorage.setItem('email', emailEl.current.value)
 		} else {
 			localStorage.removeItem('name')
-			localStorage.removeItem('email')	
+			localStorage.removeItem('email')
 		}
 
 		submitComment(commentObj)
@@ -51,7 +50,6 @@ const CommentsForm = ({ slug }: Props) => {
 					setShowSuccessMessage(false)
 				}, 3000)
 			})
-
 	}
 
 	return (

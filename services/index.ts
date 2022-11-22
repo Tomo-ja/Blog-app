@@ -1,5 +1,6 @@
 import { request, gql } from 'graphql-request'
-import { TCommentSubmission } from '../types'
+// import fetch, { FormData, fileFrom } from 'node-fetch';
+import { TCommentSubmission, TImageUpload } from '../types'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string
 
@@ -212,3 +213,13 @@ export const getFeaturedPosts = async () => {
 
   return result.posts
 };
+
+export const upLoadImage = async (obj: FormData) => {
+
+	const result = await fetch('/api/posts', {
+		method: 'POST',
+		body: obj
+	})
+
+	return result.json()
+}
